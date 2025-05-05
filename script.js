@@ -18,12 +18,14 @@ boxes.forEach((box) => {
     box.addEventListener("click", () => {
         if (turnO) {
             //PlayerX
-            box.innerText = "O"
+            box.innerText = "O";
+            box.style.color = "red";
             turnO = false;
         }
         else {
             //PlayerY
-            box.innerText = "X"
+            box.innerText = "X";
+            box.style.color = "blue";
             turnO = true;
         }
         box.disabled = true;
@@ -52,6 +54,7 @@ const checkWinner = () => {
             for (let box of boxes) {
                 box.disabled = true;
             }
+            resetBtn.innerText = "New Game"
             alert("The winner is " + pos1Val);
             return; // Exit function early if there's a winner
         }
